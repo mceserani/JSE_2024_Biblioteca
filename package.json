@@ -1,0 +1,26 @@
+{
+  "name": "jse_2024_biblioteca",
+  "version": "1.0.0",
+  "description": "Gestione di una biblioteca",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mceserani/JSE_2024_Biblioteca.git"
+  },
+  "author": "Matteo Ceserani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mceserani/JSE_2024_Biblioteca/issues"
+  },
+  "homepage": "https://github.com/mceserani/JSE_2024_Biblioteca#readme",
+  "dependencies": {
+    "inquirer": "^9.2.15"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "type": "module"
+}
