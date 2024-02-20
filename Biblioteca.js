@@ -1,3 +1,4 @@
+import fs from "fs";
 class Biblioteca {
 
     constructor(){
@@ -33,7 +34,8 @@ class Biblioteca {
 
     stampaLibri(){
         let out = "Libri:\n";
-        this.libri.forEach(l => out += l + "\n");
+        this.libri.forEach(l => out += l.id_libro + " - " + l.autore + " - " + l.titolo + " - " + l.isbn + " - " + (l.disponibile ? "Disponibile" : "In prestito") + "\n");
+        out += "\n";
         return out;
     }
 
@@ -42,9 +44,10 @@ class Biblioteca {
         for (let u of this.utenti){
             out += "- " + u.id_utente + "\n" + u.nome + " " + u.cognome + "\n" + u.email + "\n";
             out += "Libri in prestito:\n";
-            u.libri_in_prestito.forEach(l => out += "  " + l + "\n");
+            u.libri_in_prestito.forEach(l => out += l.id_libro + " - " + l.autore + " - " + l.titolo + " - " + l.isbn + "\n");
             out += "\n";
         }
+        return out;
     }
 
     checkPrestitoUtente(id_utente){
@@ -52,6 +55,22 @@ class Biblioteca {
         if(utente){
             return utente.quantiInPrestito() > 2;
         }
+    }
+
+    salvaSuFile(){
+        let data = JSON.stringify(this);
+        fs.writeFile('biblioteca.json', data, (err) => {
+            if (err) throw err;
+        });
+    }
+
+    caricaDaFile(){
+        fs.readFile('biblioteca.json', 'utf8', (err, data) => {
+            if (err) throw err;
+            let biblioteca = JSON.parse(data);
+            this.libri = biblioteca.libri;
+            this.utenti = biblioteca.utenti;
+        });
     }
 
 }

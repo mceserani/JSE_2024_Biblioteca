@@ -1,0 +1,1 @@
+{"libri":[{"id_libro":1,"titolo":"Guerra e Pace","autore":"Lev Tolstoij","isbn":"9781234567890","disponibile":true},{"id_libro":2,"titolo":"Ivanhoe","autore":"Walter Scott","isbn":"9780987654321","disponibile":true}],"utenti":[{"id_utente":1,"nome":"Matteo","cognome":"Ceserani","email":"ceserani@gmail.com","libri_in_prestito":[]}]}

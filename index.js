@@ -56,7 +56,7 @@ const registraUtente = [
         name: "id_utente",
         message: "Id dell'utente (numero intero): ",
         validate: function(value){
-            let valid = value.match(/^\d+$/);
+            let valid = Boolean(value.match(/^\d+$/));
             return valid || "Inserisci un numero intero";
         },
     },
@@ -111,6 +111,7 @@ const prestitoLibro = [
 const restituzioneLibro = prestitoLibro
 
 const biblioteca = new Biblioteca();
+biblioteca.caricaDaFile();
 
 function main(){
     inquirer.prompt(menù).then(risposta => {
@@ -155,6 +156,7 @@ function main(){
                 main();
                 break;
             case "Esci":
+                biblioteca.salvaSuFile();
                 console.log("Arrivederci!");
                 break;
         }
