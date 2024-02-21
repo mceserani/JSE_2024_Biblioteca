@@ -1,4 +1,6 @@
 import fs from "fs";
+import Libro from "./Libro.js";
+import Utente from "./Utente.js";
 class Biblioteca {
 
     constructor(){
@@ -18,8 +20,8 @@ class Biblioteca {
         let libro = this.libri.find(l => l.id_libro === id_libro);
         let utente = this.utenti.find(u => u.id_utente === id_utente);
         if(libro && utente && libro.disponibile){
-            libro.setDisponibile(false);
             utente.prendeInPrestito(libro);
+            libro.setDisponibile(false);
         }
     }
 
@@ -55,6 +57,7 @@ class Biblioteca {
         if(utente){
             return utente.quantiInPrestito() > 2;
         }
+        return false;
     }
 
     salvaSuFile(){
@@ -67,9 +70,17 @@ class Biblioteca {
     caricaDaFile(){
         fs.readFile('biblioteca.json', 'utf8', (err, data) => {
             if (err) throw err;
+            try{
             let biblioteca = JSON.parse(data);
-            this.libri = biblioteca.libri;
-            this.utenti = biblioteca.utenti;
+            for (let l of biblioteca.libri){
+            this.inserisciLibro(Libro.fromJSON(l));
+            }
+            for (let u of biblioteca.utenti){
+                this.registraUtente(Utente.fromJSON(u));
+            }
+            } catch (e){
+                console.log(e);
+            }
         });
     }
 

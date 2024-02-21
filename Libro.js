@@ -1,5 +1,9 @@
 class Libro {
 
+    static fromJSON(json){
+        return Object.assign(new Libro(), json);
+    }
+
     constructor(id_libro, titolo, autore, isbn, disponibile){
         this.id_libro = id_libro;
         this.titolo = titolo;

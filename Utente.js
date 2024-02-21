@@ -1,5 +1,9 @@
 class Utente {
 
+    static fromJSON(json){
+        return Object.assign(new Utente(), json);
+    }
+
     constructor(id_utente, nome, cognome, email){
         this.id_utente = id_utente;
         this.nome = nome;

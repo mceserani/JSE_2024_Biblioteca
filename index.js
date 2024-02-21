@@ -131,7 +131,7 @@ function main(){
                 });
                 break;
             case "Prestito libro":
-                if (!biblioteca.checkPrestitoUtente(parseInt(risposta.id_utente))){
+                if (biblioteca.checkPrestitoUtente(parseInt(risposta.id_utente))){
                     console.log("L'utente ha già 3 libri in prestito");
                     main();
                     break;
