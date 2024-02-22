@@ -29,8 +29,8 @@ Creare un sistema per una biblioteca che permetta di gestire i libri disponibili
         5.  `libriInPrestito`: un array che contiene gli ISBN dei libri attualmente in prestito all'utente.
     2.  **Metodi:**
         1.  Costruttore che inizializza le proprietà dell'utente.
-        2.  Metodo per prendere in prestito un libro (aggiunge l'ISBN del libro all'array `libriInPrestito`).
-        3.  Metodo per restituire un libro (rimuove l'ISBN del libro dall'array `libriInPrestito`).
+        2.  Metodo per prendere in prestito un libro (aggiunge il libro all'array `libriInPrestito`).
+        3.  Metodo per restituire un libro (rimuove il libro dall'array `libriInPrestito`).
 3.  **Classe** `Biblioteca`
     1.  **Proprietà:**
         1.  `libri`: un array di oggetti `Libro`.
